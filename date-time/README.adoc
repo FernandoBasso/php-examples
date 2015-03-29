@@ -133,4 +133,8 @@ $date = time() + 7 * 24 * 60 * 60;
 ----
 
 
+NOTE: This is always a work in progress. Even if this can at some point be
+considered an okay intro to the subject of date and time in PHP, corrections
+and improvements will always be welcome.
 
+//// vim:set filetype=asciidoc:
