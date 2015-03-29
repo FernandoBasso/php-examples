@@ -1,0 +1,22 @@
+= User Select Timezone
+
+This example allows the user to choose a timezone, and the the date and time is
+displayed according to that.
+
+We used H instead of h for time so that, for instance, if America/Sao_Paulo is
+7:40, Japan is 19:40 instead of 7:40 as well, since they are exaclty 12 hour
+away from each other. It will just make the output easier to understand.
+
+Also, Lybia is incorrect, and should be Libya. The goal is to show how to
+handle the exception raised by attempting to create a DateTimeZone object with
+an non-existing timezone.
+
+To make the example stick to what is the bare minimum to make it work, we are
+not redirecting after the form submission. That causes a problem that if the
+user refreshes the page, the form is submitted again. Should we redirect after
+submit, we would have to find other means to persist the selected timezone
+after the redirect. Perhaps in the future we can make an improved version of
+this example.
+
+
+// vim:set filetype=adoc:
