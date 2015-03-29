@@ -1,5 +1,10 @@
 = PHP - Working Dates and Time
 :toc:
+:toc-placement: preamble
+
+A short and quick examples to get started working with date and time in PHP.
+
+== Intro
 
 This is the first stop on this matter:
 http://php.net/manual/en/book.datetime.php
