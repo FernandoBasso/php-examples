@@ -1,3 +1,9 @@
+#
+# Running `guard start` in the directory containing this file
+# executes it in he proper way. Don't do `ruby Guardfile`.
+#
+
+
 require 'asciidoctor'
 require 'erb'
 
@@ -6,6 +12,7 @@ guard 'shell' do
     Asciidoctor.convert_file(m[0], :in_place => true)
   }
 end
+
 #
 # http://asciidoctor.org/docs/editing-asciidoc-with-live-preview/
 #

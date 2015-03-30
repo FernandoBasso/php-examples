@@ -84,6 +84,58 @@ By not specifying DateTime's constructor optional arguments, we default to
 'now' for the date and time, and the timezone is the one specified in php.ini
 or date_default_time_zone_set( 'foo/bar' ) runtime configuration.
 
+== Comparing Dates
+
+It is often necessary to compare dates. One example is when you want to display
+something to the user only after a certain day and time has come. It could be
+a subscription form or a download link, etc.
+
+One simple way to compare dates is by using their timestamps (a timestamp is
+an integer (number of seconds since the Unix Epoch (January 1
+1970 00:00:00 GMT).
+
+[source, php]
+----
+//
+// GOAL: Redirect after a certain point in time is met.
+//
+
+//
+// DateTime::format() accepts date formats from the date() function.
+// http://php.net/manual/en/function.date.php
+//
+// Examples
+// --------
+//
+// echo $d->format( 'l, F d, Y' );
+// → Sunday, March 29, 2015
+//
+// $d->format( 'l, F jS, Y' );
+// → Sunday, March 29th, 2015
+//
+// echo $d->format( 'Y/d/m H:i:s' );
+// → 2015/29/03 21:27:10
+//
+
+
+$timezone = 'America/Sao_Paulo';
+$fmt = 'H:i, F jS, Y';
+
+$subscriptions_start = new DateTime( '2015/05/01 12:00:00',
+    new DateTimeZone( 'America/Sao_Paulo' ) );
+
+$now = new DateTime( 'now', new DateTimeZone( 'America/Sao_Paulo' ) );
+
+// If now is after the subscription date/time, display the form.
+if ( $now->getTimestamp() > $subscriptions_start->getTimestamp() ) {
+    echo 'Redirecting to subscription page.' . PHP_EOL;
+}
+else {
+    echo 'Subscriptions start on ' .
+        $subscriptions_start->format( $fmt ) . '.' . PHP_EOL;
+}
+----
+
 
 == Adding and Subtracting
 
